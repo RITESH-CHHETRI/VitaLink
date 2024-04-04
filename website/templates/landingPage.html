@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
+    <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
+    <link rel="stylesheet" href="../../static/css/landingpage.css">
+    <title>VitaLink</title>
+</head>
+
+<body>
+
+    <!--===== HEADER =====-->
+    <header class="l-header">
+        <nav class="nav bd-grid">
+            <div>
+                <a href="#" class="nav__logo"><img style="width: 50px; height: 50px;"
+                        src="../../static/images/favicon.ico" alt=""></a>
+            </div>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="#home" class="nav__link active">Home</a></li>
+                    <li class="nav__item"><a href="#fabout" class="nav__link">Features</a></li>
+                    <li class="nav__item"><a href="/login" class="nav__link">Sign In</a></li>
+                    <li class="nav__item"><a href="/docs" class="nav__link">API</a></li>
+
+                </ul>
+            </div>
+
+            <div class="nav__toggle" id="nav-toggle">
+                <i class='bx bx-menu'></i>
+            </div>
+        </nav>
+    </header>
+
+    <main class="l-main">
+        <!--===== HOME =====-->
+        <section class="home" id="home">
+            <div class="home__container bd-grid">
+                <h5 class="heading"><img
+                        style="width: 50px; height: 50px;   display: block; margin-left: auto; margin-right: auto;"
+                        src="../../static/images/favicon.ico" alt=""></h5>
+                <h3 class="heading" style="color: aqua;">VitaLink</h3>
+                <p class="heading">"As being rooted in the self"</p>
+                <div id="wrapper">
+                    <div class="chat">
+                        <div class="chat-container">
+                            <div class="chat-listcontainer">
+                                <ul class="chat-message-list">
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <!--===== ABOUT =====-->
+        <section class="about section" id="fabout">
+            <h2 class="section-title">Take a look at our features</h2>
+            <div class="row about-section">
+                <div class="about__img">
+                    <div class="about-img">
+                        <img src="../../static/images/symptom.gif" alt="">
+                    </div>
+                    <div class="about__details">
+                        <h2 class="about__subtitle">Symptom-Based Diagnosis<span></span></h2>
+                        <span class="about__profession"></span>
+                        <p class="about__text"> Patients can input symptoms, and the system utilizes algorithms to provide potential diagnoses, precautions, suggested medications, and information on nearby specialists.</p>
+                    </div>
+                </div>
+                <div class="about__img">
+                    <div class="about__details">
+                        <h2 class="about__subtitle">Early Detection of Diabetes and Liver Diseases<span></span></h2>
+                        <span class="about__profession"></span>
+                        <p class="about__text">The system analyzes patient attributes from test reports, assessing the likelihood of diabetes and liver diseases, providing prompt feedback for proactive management.</p>
+                    </div>
+                    <div class="about-img">
+                        <img src="../../static/images/detection.gif" alt="">
+                    </div>
+                </div>
+
+                <div class="about__img">
+                    <div class="about-img">
+                        <img src="../../static/images/malaria.gif" alt="">
+                    </div>
+                    <div class="about__details">
+                        <h2 class="about__subtitle">Malaria Detection through Image Analysis<span></span></h2>
+                        <span class="about__profession"></span>
+                        <p class="about__text"> Patients can upload cell images for suspected malaria cases, and image recognition algorithms accurately identify malaria parasites, facilitating rapid diagnosis and treatment planning.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="about section" id="about">
+            <div class="row about-section">
+
+                <div class="about__img">
+                    <div class="about-img">
+                        <img src="../../static/images/pneumonia.gif" alt="">
+                    </div>
+                    <div class="about__details">
+                        <h2 class="about__subtitle">Pneumonia Detection via Chest X-ray Analysis<span></span></h2>
+                        <span class="about__profession"></span>
+                        <p class="about__text">By analyzing chest X-ray images, the solution detects signs of pneumonia, aiding clinicians in informed decision-making.</p>
+                    </div>
+                </div>
+                <div class="about__img">
+                    <div class="about__details">
+                        <h2 class="about__subtitle">Comprehensive Health Feeds<span></span></h2>
+                        <span class="about__profession"></span>
+                        <p class="about__text">Doctors have access to personalized feeds where they view updates, posts, photos, and other content shared by their patients. The feed algorithm prioritizes content based on health status, recent medical data, engagement with treatment plans, and doctor's preferences.</p>
+                    </div>
+                    <div class="about-img">
+                        <img src="../../static/images/Comprehensive.gif" alt="">
+                    </div>
+                </div>
+
+                <div class="about__img">
+                    <div class="about-img">
+                        <img src="../../static/images/patient.gif" alt="">
+                    </div>
+                    <div class="about__details">
+                        <h2 class="about__subtitle">Patient Profiles<span></span></h2>
+                        <span class="about__profession"></span>
+                        <p class="about__text">Each patient has a personal profile showcasing medical information, health history, current conditions, and treatment plans. Doctors can monitor patient health trends, track progress, and provide personalized care through these profiles.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="about section" id="about">
+            <div class="row about-section">
+
+                <div class="about__img">
+                    <div class="about-img">
+                        <img src="../../static/images/health.gif" alt="">
+                    </div>
+                    <div class="about__details">
+                        <h2 class="about__subtitle">Real-Time Health Updates and Alerts<span></span></h2>
+                        <span class="about__profession"></span>
+                        <p class="about__text">Doctors receive real-time updates and alerts about their patients' health status, including vital signs, medication adherence, symptom changes, and appointment reminders.</p>
+                    </div>
+                </div>
+                <div class="about__img">
+                    <div class="about-img">
+                        <img src="../../static/images/healthposts.gif" alt="">
+                    </div>
+                    <div class="about__details">
+                        <h2 class="about__subtitle">Interactive Health Posts<span></span></h2>
+                        <span class="about__profession"></span>
+                        <p class="about__text">Doctors can create and share various types of health-related content directly from their profiles or the patient feed, engaging with patients and providing guidance and encouragement.
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div id="preloader"></div>
+    <!--===== SCROLL REVEAL =====-->
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="../../static/js/landingpage.js"></script>
+    <br>
+    
+</body>
+
+</html>

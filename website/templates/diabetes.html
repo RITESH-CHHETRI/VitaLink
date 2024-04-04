@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Prediction Result</title>
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #ADE2E3;
+        margin: 0;
+        padding: 20px; /* Adding padding */
+    }
+    h2 {
+        color: #007bff;
+        text-align: center;
+    }
+    p {
+        margin-bottom: 20px;
+    }
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+    li {
+        margin-bottom: 5px;
+    }
+    h3 {
+        color: #007bff;
+    }
+    .container {
+        margin-right: 20%; /* Adding right margin */
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+</style>
+<body>
+    <div class="container">
+        <h2>Diabetes Prediction Result</h2>
+        {% if prediction==1 %}
+        <p>Predicted Diabetes: Yes</p>
+        {% else %}
+        <p>Predicted Diabetes: No</p>
+        {% endif %}
+    </div>
+ 
+</body>
+</html>

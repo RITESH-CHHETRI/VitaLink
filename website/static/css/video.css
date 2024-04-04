@@ -1,0 +1,34 @@
+body{
+    background-color: black;
+}
+.container{
+    display: flex;
+    gap: 20px;
+}
+
+video {
+    background-color: transparent;
+    color: white;
+    animation: mymove 5s infinite;
+    flex-grow: 1;
+ }
+  @keyframes mymove {
+    50% {box-shadow: 5px 10px 30px rgba(255, 255, 255, 0.5);}
+    70% {box-shadow: 2px 4px 10px rgba(255, 255, 255, 0.8);}
+  }
+
+
+.disconnectbutton{
+    background-color: red;
+    color: white;
+    border: 2px solid darkred;
+    border-radius: 10px;
+    position: absolute;
+    left: 45%;
+    transform: scale(1.5);
+  }
+  .disconnectbutton:hover{
+    background-color: darkred;
+    border: 2px solid red;
+
+  }

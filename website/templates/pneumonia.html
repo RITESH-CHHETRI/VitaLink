@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pneumonia Detection</title>
+    <link rel="stylesheet" href="../../static/css/fileupload.css">
+</head>
+<body>
+    <h2>Pneumonia Detection</h2>
+<p class="lead">Upload a <b>Image</b></p>
+
+<form id="file-upload-form" class="uploader" method="post" enctype="multipart/form-data">
+  <input id="file-upload" type="file" name="image" accept="image/*" />
+
+  <label for="file-upload" id="file-drag">
+    <img id="file-image" src="#" alt="Preview" class="hidden">
+    <div id="start">
+      <i class="fa fa-download" aria-hidden="true"></i>
+      <div>Select a file or drag here</div>
+      <div id="notimage" class="hidden">Please select an image</div>
+      <span id="file-upload-btn" class="btn btn-primary">Select a file</span>
+    </div>
+    <div id="response" class="hidden">
+      <div id="messages"></div>
+      <progress class="progress" id="file-progress" value="0">
+        <span>0</span>%
+      </progress>
+    </div>
+  </label>
+  <button type="submit" class="btn btn-primary" id="submit">Upload</button>
+</form>
+
+    {% if result_message %}
+        <h3>{{ result_message }}</h3>
+    {% endif %}
+
+    {% if error_message %}
+        <div class="error-section">
+            <p>{{ error_message }}</p>
+            <h4>Specialists 👨‍⚕</h4>
+            <p>Click on the specialist's name to find out the nearest specialist to you ...</p>
+            {% for specialist, link in specialists %}
+                <p>- <a href="{{ link }}" target="_blank">{{ specialist }}</a></p>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <script src="../../static/js/fileupload.js"></script>
+</body>
+</html>

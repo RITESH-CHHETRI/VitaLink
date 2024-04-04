@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malaria Prediction Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #320547;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            color: white; /* Set text color to white */
+        }
+
+        h2 {
+            color: #fff; /* Set heading color to white */
+        }
+
+        p {
+            font-size: 18px;
+            color: #ddd; /* Set paragraph text color to a lighter shade of white */
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Malaria Prediction Result</h2>
+    {% if result==1 %}
+    <p>Predicted Malaria: Yes</p>
+    {% else %}
+    <p>Predicted Malaria: No</p>
+    {% endif %}
+</body>
+</html>

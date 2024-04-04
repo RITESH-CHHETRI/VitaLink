@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #320547;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 50%;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="range"] {
+            width: 80%;
+            margin-bottom: 10px;
+        }
+
+        .slider-container {
+            margin-bottom: 20px;
+        }
+
+        .slider-value {
+            text-align: center;
+        }
+
+        button[type="submit"] {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Enter the Details</h2>
+
+    <form method="post">
+        <div class="slider-container">
+            <label for="gender">Gender:</label>
+            <select name="gender" id="gender" onchange="updateSliderValue('gender', this.value)">
+                <option value="0">Female</option>
+                <option value="1">Male</option>
+            </select><br>
+            <div class="slider-value" id="genderValue">Gender: Female</div>
+        </div>
+
+
+<div class="slider-container">
+    <label for="age">Age:</label>
+    <input name="age" type="number" id="age" min="1" max="110" step="1" onchange="updateSliderValue('age', this.value)"><br>
+    <div class="slider-value" id="ageValue" ></div>
+</div>
+
+<div class="slider-container">
+    <label for="total_bilirubin">Total Bilirubin (in mg/dL):</label>
+    <input type="number" name="total_bilirubin" id="total_bilirubin" min="0.1" max="40.0" step="0.01" onchange="updateSliderValue('totalBilirubin', this.value)"><br>
+    <div class="slider-value" id="totalBilirubinValue"> </div>
+</div>
+
+<div class="slider-container">
+    <label for="direct_bilirubin">Direct Bilirubin (in mg/dL):</label>
+    <input type="number" name="direct_bilirubin" id="direct_bilirubin" min="0.1" max="20.0" step="0.01" onchange="updateSliderValue('directBilirubin', this.value)"><br>
+    <div class="slider-value" id="directBilirubinValue"> </div>
+</div>
+
+<div class="slider-container">
+    <label for="alk_phosphate">Alkaline Phosphatase:</label>
+    <input type="number" name="alk_phosphate" id="alk_phosphate" min="10" max="250" step="1" onchange="updateSliderValue('alkPhosphate', this.value)"><br>
+    <div class="slider-value" id="alkPhosphateValue"></div>
+</div>
+
+
+<div class="slider-container">
+    <label for="alamine_aminotransferase">Alamine Aminotransferase (ALT):</label>
+    <input type="number" name="alamine_aminotransferase" id="alamine_aminotransferase" min="20" max="120" step="1" onchange="updateSliderValue('alamineAminotransferase', this.value)"><br>
+    <div class="slider-value" id="alamineAminotransferaseValue"> </div>
+</div>
+
+<div class="slider-container">
+    <label for="aspartate_aminotransferase">Aspartate Aminotransferase (AST):</label>
+    <input type="number" name="aspartate_aminotransferase" id="aspartate_aminotransferase" min="20" max="140" step="1" onchange="updateSliderValue('aspartateAminotransferase', this.value)"><br>
+    <div class="slider-value" id="aspartateAminotransferaseValue"> </div>
+</div>
+
+<div class="slider-container">
+    <label for="total_proteins">Total Proteins:</label>
+    <input type="number" name="total_proteins" id="total_proteins" min="2.0" max="10.0" step="0.01" onchange="updateSliderValue('totalProteins', this.value)"><br>
+    <div class="slider-value" id="totalProteinsValue"></div>
+</div>
+
+<div class="slider-container">
+    <label for="albumin">Albumin:</label>
+    <input type="number" name="albumin" id="albumin" min="1.0" max="10.0" step="0.01" onchange="updateSliderValue('albumin', this.value)"><br>
+    <div class="slider-value" id="albuminValue"> </div>
+</div>
+
+<div class="slider-container">
+    <label for="ratio">Albumin/Globulin Ratio:</label>
+    <input type="number" name="ratio" id="ratio" min="0.1" max="3.0" step="0.01" onchange="updateSliderValue('ratio', this.value)"><br>
+    <div class="slider-value" id="ratioValue"></div>
+</div>
+
+
+    <!-- Add more slider containers for additional sliders -->
+
+    <button type="submit">Predict</button>
+</form>
+
+<script>
+    function updateSliderValue(sliderId, value) {
+        var sliderValueElement = document.getElementById(sliderId + 'Value');
+        if (sliderValueElement) {
+            sliderValueElement.textContent = value;
+        }
+    }
+</script>
+
+
+
+</body>
+</html>

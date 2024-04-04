@@ -1,0 +1,72 @@
+body{
+  background-color: #08093b;
+}
+
+.button-create {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #005ce6;
+    border: 2px solid #c61aff;
+    border: none;
+    color: black;
+    text-align: center;
+    font-size: 18px;
+    padding: 20px;
+    width: 100px;
+    transition-duration: 0.5s;
+    cursor: pointer;
+    position: relative;
+    left: 45%;
+  }
+  .button-create:hover{
+    background-color:#c61aff;
+    color: white;
+    border: 2px solid #005ce6;
+  }
+
+
+/* input text box [edit,create]*/
+.postform{
+  margin-top: 13%;
+}
+.postform input[type=text] {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 3px solid #ccc;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+    left: 25%;
+    position: relative;
+    border-radius: 5px;
+  }
+  .postform input[type=text]:focus {
+    border: 3px solid red;
+  }
+  /* text area [edit,create]*/
+  .postform textarea {
+    width: 50%;
+    height: 150px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    left: 25%;
+    position: relative;
+  }
+  /* title [edit,create] */
+  .title {
+    color:yellow;
+    position:relative;
+    left: 25%;
+    font-size: 30px;
+  }
+  /* content [edit,create] */
+  .content {
+    color:mediumpurple;
+    position: relative;
+    left: 25%;
+    font-size: 25px;
+  }

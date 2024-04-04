@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Overview</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1{
+            text-align: center;
+            color: #fff;
+        }
+         h2 {
+            color: #333;
+        }
+        p {
+            color: #666;
+        }
+        /* Navbar styles */
+        nav {
+            background-color: #02689f;
+            color: #fff;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+        nav ul li a {
+            color:black;
+            text-decoration: none;
+        }
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        
+        <h1>VitaLink API for Devs</h1>
+
+        <div class="container">
+            <ul>
+                <li><a href="#getting-started">Getting Started</a></li>
+                <li><a href="#endpoints">Endpoints</a></li>
+                <li><a href="#Parameters">Parameters</a></li>
+                <li><a href="#examples">Examples</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main content -->
+    <div class="container">
+        <h2 id="getting-started">Getting Started</h2>
+        <p>The API provides functionality for predicting diseases, analyzing malaria and pneumonia from uploaded images, predicting diabetes 
+            and liver-related issues, and offering first aid information. It accepts GET requests to retrieve available modes 
+            and POST requests with specific parameters for each mode to obtain predictions and information.</p>
+        
+        <h2 id="endpoints">Endpoints</h2>
+        <p>
+            <ul>
+                <li><strong>/api (GET)</strong>: Returns information about available modes for POST requests.</li>
+                <li><strong>/api (POST)</strong>:
+                    <ul>
+                        <li><strong>diseasepred</strong>: Predicts disease based on symptoms.</li>
+                        <li><strong>malariapred</strong>: Predicts malaria from uploaded images.</li>
+                        <li><strong>pneumoniapred</strong>: Predicts pneumonia from uploaded images.</li>
+                        <li><strong>diabetespred</strong>: Predicts diabetes based on input parameters.</li>
+                        <li><strong>liverpred</strong>: Predicts liver-related issues based on input parameters.</li>
+                        <li><strong>firstaid</strong>: Provides first aid information based on input queries.</li>
+                    </ul>
+                </li>
+            </ul>
+        </p>
+        
+        <h2 id="Parameters">Parameters</h2>
+        <p>
+            <ul>
+    <li><strong>/api (GET)</strong>: Parameters needed: None</li>
+    <li><strong>/api (POST)</strong>:
+        <ul>
+            <li><strong>diseasepred</strong>: Parameters needed: symptoms (list of symptoms)</li>
+            <li><strong>malariapred</strong>: Parameters needed: image (uploaded image file)</li>
+            <li><strong>pneumoniapred</strong>: Parameters needed: image (uploaded image file)</li>
+            <li><strong>diabetespred</strong>: Parameters needed: age, status, polyuria, polydipsia, weight, weakness, polyphagia, genital_thrush, visual_blurring, itching, irritability, delayed_healing, partial_paresis, muscle_stiffness, alopecia, obesity</li>
+            <li><strong>liverpred</strong>: Parameters needed: age, gender, total_bilirubin, direct_bilirubin, alk_phosphate, alamine_aminotransferase, aspartate_aminotransferase, total_proteins, albumin, ratio</li>
+            <li><strong>firstaid</strong>: Parameters needed: quest (query for first aid information)</li>
+        </ul>
+    </li>
+</ul>
+
+        </p>
+        
+        <h2 id="examples">Examples</h2>
+        <h1>API Usage Examples</h1>
+        <table border="1">
+          <tr>
+            <th>API Endpoint</th>
+            <th>Request Data</th>
+            <th>Response</th>
+          </tr>
+          <tr>
+            <td>/api (Disease Prediction)</td>
+            <td>
+              <pre>
+                {'mode': 'diseasepred', 'symptoms': ['chills', 'high_fever', 'runny_nose']}
+              </pre>
+            </td>
+            <td>
+              <pre>
+                {
+                  'Symptoms': ['chills', 'high_fever', 'runny_nose'],
+                  'Prediction': 'Flu',
+                  'Disease Info': 'Flu is a contagious respiratory illness...'
+                }
+              </pre>
+            </td>
+          </tr>
+          <tr>
+            <td>/api (Malaria Prediction)</td>
+            <td>
+              <pre>
+                {'mode': 'malariapred'}
+              </pre>
+              <p>Image file: mal.jpeg</p>
+            </td>
+            <td>
+              <pre>
+                {'Malariadetection Result': 'Positive'}
+              </pre>
+            </td>
+          </tr>
+          <tr>
+            <td>/api (Pneumonia Prediction)</td>
+            <td>
+              <pre>
+                {'mode': 'pneumoniapred'}
+              </pre>
+              <p>Image file: pne.jpeg</p>
+            </td>
+            <td>
+              <pre>
+                {'Result Message': 'The patient is not suffering from Pneumonia with Confidence: 90.00%'}
+              </pre>
+            </td>
+          </tr>
+          <tr>
+            <td>/api (Diabetes Prediction)</td>
+            <td>
+              <pre>
+                {
+                  'mode': 'diabetespred',
+                  'age': 35,
+                  'status': '1',
+                  'polyuria': '1',
+                  'polydipsia': '0',
+                  'weight': '70',
+                  'weakness': '0',
+                  'polyphagia': '0',
+                  'genital_thrush': '0',
+                  'visual_blurring': '1',
+                  'itching': '0',
+                  'irritability': '0',
+                  'delayed_healing': '0',
+                  'partial_paresis': '0',
+                  'muscle_stiffness': '0',
+                  'alopecia': '0',
+                  'obesity': 0
+                }
+              </pre>
+            </td>
+            <td>
+              <pre>
+                {'Prediction': 'Diabetes'}
+              </pre>
+            </td>
+          </tr>
+          <tr>
+            <td>/api (Liver Disease Prediction)</td>
+            <td>
+              <pre>
+                {
+                  'mode': 'liverpred',
+                  'age': 40,
+                  'gender': '1',
+                  'total_bilirubin': 1.2,
+                  'direct_bilirubin': 0.4,
+                  'alk_phosphate': 98,
+                  'alamine_aminotransferase': 25,
+                  'aspartate_aminotransferase': 30,
+                  'total_proteins': 6.0,
+                  'albumin': 3.5,
+                  'ratio': 1.2
+                }
+              </pre>
+            </td>
+            <td>
+              <pre>
+                {'Liver Disease Probability': 'Low'}
+              </pre>
+            </td>
+          </tr>
+          <tr>
+            <td>/api (First Aid)</td>
+            <td>
+              <pre>
+                {'mode': 'firstaid', 'quest': 'I HAVE A CUT'}
+              </pre>
+            </td>
+            <td>
+              <pre>
+                {'Tag': 'firstaid', 'Data': 'Apply pressure and clean the wound with antiseptic.'}
+              </pre>
+            </td>
+          </tr>
+        </table>
+    </div>
+</body>
+</html>

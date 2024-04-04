@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Post</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="../../static/css/feed.css">
+  <link rel="stylesheet" type="text/css" href="../../static/css/about.css">
+  <link rel="stylesheet" type="text/css" href="../../static/css/navbar.css">
+
+</head>
+<body>
+    <div class="container db-social">
+        <div class="jumbotron jumbotron-fluid"></div>
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-xl-11">
+                    <div class="widget head-profile has-shadow">
+                        <div class="widget-body pb-0">
+                            <div class="row d-flex align-items-center">
+                                <div class="col-xl-4 col-md-4 d-flex justify-content-lg-start justify-content-md-start justify-content-center">
+                                    <ul>
+                                        <li>
+                                            <div class="counter">{{user.followers.split("+")|length-1}}</div>
+                                            <div class="heading">Patients</div>
+                                        </li>
+                                        <li>
+                                            <div class="counter">{{user.following.split("+")|length-1}}</div>
+                                            <div class="heading">Connected</div>
+                                        </li>
+                                        <li>
+                                            <div class="counter">{{posts|length}}</div>
+                                            <div class="heading">Posts</div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-xl-4 col-md-4 d-flex justify-content-center">
+                                    <div class="image-default">
+                                        <img class="rounded-circle" src="../../static/profile/{{user.profilepic}}" alt="...">
+                                    </div>
+                                    <div class="infos">
+                                        <h2>{{user.name}}</h2>
+                                        <div class="location">{{user.status}}</div>
+                                        <div class="location">{{user.interests}}</div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-4 col-md-4 d-flex justify-content-lg-end justify-content-md-end justify-content-center">
+                                    <div class="follow">
+                                        <form method="post" action="/follow">
+                                        <input type="hidden" name="follow" value="{{user.id}}"/>
+                                        <button class="btn btn-shadow"><i class="la la-user-plus"></i>Connect</button>
+                                    </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% for post in user.posts %}
+      
+    <div class = "main panel panel-default z-depth-4">
+
+      <div class = "panel-body">
+      
+      <div class="media">
+        <div class="media-left">
+          <img src="../../static/profile/{{user.profilepic}}" class="media-object circle">
+        </div>
+        <div class="media-body">
+          <p>{{user.name}} <span class = "time">{{post.date}}</span></p>
+        </div>
+      </div>
+      <form method="POST" action="/">
+        <input type="hidden" name="id" value="{{post.id}}"/>
+      <div class = "post">
+      <b>{{post.title}}</b>
+      {% if post.pic=="None"%}
+      {% else %}
+      <img class="not" src="../../static/post/{{post.pic}}">
+      {% endif %}
+      <p class = "caption">{{post.data}}</p>
+      {% if currentuser.id|string in post.likes.split("+") %}
+      <button type="submit" style="background-color: transparent; border: 0ch;"><p class = "iconsec"><i class = "fa fa-heart fa-solid;" style="color: red;"></i></p></button> <span class = "right"><b>{{post.likes.split("+")|length -1}} likes</b></span>
+      {% else %}
+      <button type="submit" style="background-color: transparent; border: 0ch;"><p class = "iconsec"><i class = "fa fa-heart-o" ></i>    </p></button> <span class = "right"><b>{{post.likes.split("+")|length -1}} likes</b></span>
+      {% endif %}
+      </form>
+      </div>
+      <form method="post" action="/chat">
+        <input type="hidden" name="chat" value="{{user.name}}">
+        <button type="submit" style="background-color: transparent; border: 0ch; width: 100%;">
+          <center><a class="btn" id="open"><i class="fa fa-envelope-o"></i></a></center>
+        </button>
+      </form>
+      
+      </div>
+      </div>
+      <br>
+    {% endfor %}
+
+</body>
+</html>

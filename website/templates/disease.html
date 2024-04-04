@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ADE2E3;
+            margin: 0;
+            padding: 20px; /* Adding padding */
+        }
+        h2 {
+            color: #007bff;
+            text-align: center;
+        }
+        p {
+            margin-bottom: 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        h3 {
+            color: #007bff;
+        }
+        .container {
+            margin-right: 20%; /* Adding right margin */
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container"> <!-- Creating a container for content -->
+        <h2>Prediction Result</h2>
+        <p>Symptoms:
+            <ul>
+                {% for symptom in symptoms %}
+                    <li>{{ symptom }}</li>
+                {% endfor %}
+            </ul>
+        </p>
+        <p>Predicted Disease: {{ prediction }}</p>
+
+        <h3>Disease Information</h3>
+        <ul>
+            {% for info in disease_info %}
+                <li>{{ info }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

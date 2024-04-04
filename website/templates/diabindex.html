@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Diagnosis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ADE2E3;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1{
+          color: #008FDA;
+        } 
+        h4 {
+            text-align: center;
+            color: #333;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="number"],
+        input[type="radio"] {
+            width: calc(50% - 22px); /* Adjusted width */
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        input[type="radio"] {
+            width: auto;
+            margin-right: 5px;
+        }
+        .radio-group {
+            display: inline-block; /* Display as inline-block */
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #008FDA;
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 4px;
+            display: none;
+        }
+        .result.success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .result.error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        a {
+            margin-left: 10px;
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+
+<div class="container">
+    <h1>Early Diabetes Diagnosis</h1>
+    <h4>Choose below options according to the report to know the patient's status</h4>
+    <form id="diabetesForm">
+        <label for="age">What is your Age?</label>
+        <input type="number" id="age" name="age" min="0" max="110" value="25">
+        <p></p>
+        <label>1.What is your Gender?</label>
+        <div class="radio-group">
+            <input type="radio" id="male" name="gender" value="1">
+            <label for="male">Male</label>
+        </div>
+        <div class="radio-group">
+            <input type="radio" id="female" name="gender" value="0">
+            <label for="female">Female</label>
+        </div>
+        <p></p>
+        <!-- Other questions go here -->
+        <label for="polyuria">2.Do you have Polyuria?</label>
+        <div class="radio-group">
+            <input type="radio" id="polyuriaYes" name="polyuria" value="1">
+            <label for="polyuriaYes">Yes</label>
+        </div>
+        <div class="radio-group">
+            <input type="radio" id="polyuriaNo" name="polyuria" value="0">
+            <label for="polyuriaNo">No</label>
+        </div>
+        <a href="https://en.wikipedia.org/wiki/Polyuria" target="_blank">What is Polyuria?</a>
+        <p></p>
+
+        <label for="polydipsia">3.Do you have Polydipsia?</label>
+        <div class="radio-group">
+            <input type="radio" id="polydipsiaYes" name="polydipsia" value="1">
+            <label for="polydipsiaYes">Yes</label>
+        </div>
+        <div class="radio-group">
+            <input type="radio" id="polydipsiaNo" name="polydipsia" value="0">
+            <label for="polydipsiaNo">No</label>
+        </div>
+        <a href="https://en.wikipedia.org/wiki/Polydipsia" target="_blank">What is Polydipsia?</a>
+        
+        <!-- Repeat the above pattern for other questions -->
+        <p></p>
+
+        <label for="weightLoss">4.Recently do you observe sudden weight loss?</label>
+        <div class="radio-group">
+            <input type="radio" id="weightLossYes" name="weightLoss" value="1">
+            <label for="weightLossYes">Yes</label>
+        </div>
+        <div class="radio-group">
+            <input type="radio" id="weightLossNo" name="weightLoss" value="0">
+            <label for="weightLossNo">No</label>
+        </div>
+        <p></p>
+
+        <label for="weakness">5.Do you feel any Weakness?</label>
+        <div class="radio-group">
+            <input type="radio" id="weaknessYes" name="weakness" value="1">
+            <label for="weaknessYes">Yes</label>
+        </div>
+        <div class="radio-group">
+            <input type="radio" id="weaknessNo" name="weakness" value="0">
+            <label for="weaknessNo">No</label>
+        </div>
+        <p></p>
+
+        <label for="polyphagia">6.Do you have Polyphagia?</label>
+        <div class="radio-group">
+            <input type="radio" id="polyphagiaYes" name="polyphagia" value="1">
+            <label for="polyphagiaYes">Yes</label>
+        </div>
+        <div class="radio-group">
+            <input type="radio" id="polyphagiaNo" name="polyphagia" value="0">
+            <label for="polyphagiaNo">No</label>
+        </div>
+        <a href="https://en.wikipedia.org/wiki/Polyphagia" target="_blank">What is Polyphagia?</a>
+        <p></p>
+
+        <label for="genitalThrush">7.Do you have Genital thrush?</label>
+        <div class="radio-group">
+            <input type="radio" id="genitalThrushYes" name="genitalThrush" value="1">
+            <label for="genitalThrushYes">Yes</label>
+        </div>
+        <div class="radio-group">
+            <input type="radio" id="genitalThrushNo" name="genitalThrush" value="0">
+            <label for="genitalThrushNo">No</label>
+        </div>
+        <a href="https://www.ticahealth.org/interactive-guide/your-body/genital-problems/genital-thrush/" target="_blank">What is Genital thrush?</a>
+        <p></p>
+
+        <label for="visualBlurring">8.Do you have Visual blurring?</label>
+        <div class="radio-group">
+            <input type="radio" id="visualBlurringYes" name="visualBlurring" value="1">
+            <label for="visualBlurringYes">Yes</label>
+        </div>
+        <div class="radio-group">
+            <input type="radio" id="visualBlurringNo" name="visualBlurring" value="0">
+            <label for="visualBlurringNo">No</label>
+        </div>
+        <a href="https://en.wikipedia.org/wiki/Blurred_vision" target="_blank">What is Visual blurring?</a>
+        
+        <p></p>
+
+        <label for="itching">9.Do you have Itching?</label>
+        <div class="radio-group">
+            <input type="radio" id="itchingYes" name="itching" value="1">
+            <label for="itchingYes">Yes</label>
+        </div>
+        <div class="radio-group">
+            <input type="radio" id="itchingNo" name="itching" value="0">
+            <label for="itchingNo">No</label>
+        </div>
+        <!-- Link to explanation of Itching -->
+        <a href="https://en.wikipedia.org/wiki/Itch" target="_blank">What is Itching?</a>
+        <p></p>
+
+        <label for="irritability">10.Do you have Irritability?</label>
+        <div class="radio-group">
+            <input type="radio" id="irritabilityYes" name="irritability" value="1">
+            <label for="irritabilityYes">Yes</label>
+        </div>
+        <div class="radio-group">
+            <input type="radio" id="irritabilityNo" name="irritability" value="0">
+            <label for="irritabilityNo">No</label>
+        </div>
+        <!-- Link to explanation of Irritability -->
+        <a href="https://en.wikipedia.org/wiki/Irritability" target="_blank">What is Irritability?</a>
+        <p></p>
+
+        <label>11.Do you have Delayed healing?</label>
+        <div class="radio-group">
+            <input type="radio" id="delayedHealingYes" name="delayedHealing" value="Yes">
+            <label for="delayedHealingYes">Yes</label>
+        </div>
+        <div class="radio-group">
+            <input type="radio" id="delayedHealingNo" name="delayedHealing" value="No">
+            <label for="delayedHealingNo">No</label>
+        </div>
+        <p></p>
+
+        <!-- Partial Paresis -->
+        <label>12.Do you have Partial paresis?</label>
+        <div class="radio-group">
+            <input type="radio" id="partialParesisYes" name="partialParesis" value="Yes">
+            <label for="partialParesisYes">Yes</label>
+        </div>
+        <div class="radio-group">
+            <input type="radio" id="partialParesisNo" name="partialParesis" value="No">
+            <label for="partialParesisNo">No</label>
+        </div>
+        <a href="https://en.wikipedia.org/wiki/Paresis" target="_blank">What is Paresis?</a>
+        <p></p>
+
+        <!-- Muscle Stiffness -->
+        <label>13.Do you have Muscle stiffness?</label>
+        <div class="radio-group">
+            <input type="radio" id="muscleStiffnessYes" name="muscleStiffness" value="Yes">
+            <label for="muscleStiffnessYes">Yes</label>
+        </div>
+        <div class="radio-group">
+            <input type="radio" id="muscleStiffnessNo" name="muscleStiffness" value="No">
+            <label for="muscleStiffnessNo">No</label>
+        </div>
+        <p></p>
+
+        <!-- Alopecia -->
+        <label>14.Do you have Alopecia?</label>
+        <div class="radio-group">
+            <input type="radio" id="alopeciaYes" name="alopecia" value="Yes">
+            <label for="alopeciaYes">Yes</label>
+        </div>
+        <div class="radio-group">
+            <input type="radio" id="alopeciaNo" name="alopecia" value="No">
+            <label for="alopeciaNo">No</label>
+        </div>
+        <a href="https://en.wikipedia.org/wiki/Hair_loss" target="_blank">What is Alopecia?</a>
+        <p></p>
+
+        <!-- Obesity -->
+        <label>15.Do you have Obesity?</label>
+        <div class="radio-group">
+            <input type="radio" id="obesityYes" name="obesity" value="Yes">
+            <label for="obesityYes">Yes</label>
+        </div>
+        <div class="radio-group">
+            <input type="radio" id="obesityNo" name="obesity" value="No">
+            <label for="obesityNo">No</label>
+        </div>
+        
+
+        <button type="button" onclick="predict()">Predict</button>
+    </form>
+
+    <div id="result" class="result" style="display: none;"></div>
+</div>
+
+<script>
+    function predict() {
+        // Collect form data
+        var age = document.getElementById('age').value;
+        var gender = document.querySelector('input[name="gender"]:checked').value;
+        // Collect other form data similarly
+
+        // Make prediction based on data
+        // You can implement prediction logic here
+        
+        // For demonstration, I'm showing a simple message
+        var resultDiv = document.getElementById('result');
+        if (Math.random() < 0.5) {
+            resultDiv.className = 'result success';
+            resultDiv.innerText = 'The patient does not have Diabetes 😄';
+        } else {
+            resultDiv.className = 'result error';
+            resultDiv.innerText = 'The patient have high chances of having Diabetes 😔';
+        }
+        resultDiv.style.display = 'block';
+    }
+</script>
+
+</body>
+</html>
